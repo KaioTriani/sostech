@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /checkout
+
+Host: https://sostechcel.com.br
+Sitemap: https://sostechcel.com.br/sitemap.xml
