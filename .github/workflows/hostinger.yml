@@ -1,0 +1,40 @@
+# A cada push na main, gera o site estático (pasta out/) e publica na branch `hostinger`.
+# Na Hostinger (hPanel > Avançado > Git), aponte o repositório para a branch `hostinger`
+# e a pasta de instalação para public_html: o site fica no ar sem precisar de Node.
+name: Build para Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hostinger
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          # defina em Settings > Secrets and variables > Actions > Variables (ex.: https://sostechcel.com.br)
+          NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL }}
+      - name: Publicar out/ na branch hostinger
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: hostinger
+          force_orphan: true
+          exclude_assets: ""
+          commit_message: "Build do site"

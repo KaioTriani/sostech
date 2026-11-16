@@ -1,0 +1,14 @@
+import type { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: "SOS TECH CEL",
+    short_name: "SOS TECH CEL",
+    description: "Smartphones, acessórios e assistência técnica em João Pessoa.",
+    start_url: "/",
+    display: "standalone",
+    background_color: "#050505",
+    theme_color: "#050505",
+    icons: [{ src: "/brand/logo-sos-tech-cel.png", sizes: "600x600", type: "image/png" }],
+  };
+}

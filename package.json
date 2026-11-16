@@ -1,0 +1,41 @@
+{
+  "name": "sos-tech-cel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site da SOS TECH CEL: loja de smartphones e acessórios e assistência técnica em João Pessoa.",
+  "scripts": {
+    "dev": "next dev -p 3210",
+    "build": "next build",
+    "preview": "node scripts/serve-out.mjs 3212",
+    "typecheck": "tsc --noEmit",
+    "og": "node scripts/og.mjs"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/sora": "^5.3.0",
+    "@react-three/drei": "^9.117.3",
+    "@react-three/fiber": "^8.17.10",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^0.460.0",
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.169.0",
+    "zustand": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@types/three": "^0.169.0",
+    "autoprefixer": "^10.6.2",
+    "playwright-core": "^1.64.1",
+    "postcss": "^8.5.33",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3"
+  }
+}
